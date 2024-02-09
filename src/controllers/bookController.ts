@@ -12,7 +12,7 @@ export class BookController {
         try {
             const books = await this.bookService.getAllBooks();
             
-            res.json(books);
+            res.json({message: "successful", books: books});
         } catch (error) {
             console.error('Error fetching books:', error);
             res.status(500).json({ error: 'Internal server error' });
