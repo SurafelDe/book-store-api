@@ -12,8 +12,6 @@ export class UserController {
         try {
           const { email, password } = req.body;
           const token = await this.userService.login(email, password);
-          console.log("tokentokentokentokentokentoken")
-          console.log(token);
           if(token === 'invalid_password') {
             res.json({ error: 'Incorrect password' });
           }
