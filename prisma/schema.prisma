@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id               Int      @id @default(autoincrement())
+  title            String   @db.VarChar(255)
+  writer           String   @db.VarChar(255)
+  cover_image      String   @default(dbgenerated("false"))
+  price            Float
+  tags             String[]
+  rating           Float    @default(0)
+  number_of_review Int      @default(0)
+  createdAt        DateTime @default(now()) @db.Date
+  updatedAt        DateTime @default(now()) @updatedAt @db.Date
+  orders           Order[]  @relation("BookOrders")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String   @db.VarChar(255)
+  lastName  String   @db.VarChar(255)
+  email     String   @unique
+  password  String
+  points    Int      @default(100)
+  createdAt DateTime @default(now()) @db.Date
+  updatedAt DateTime @default(now()) @updatedAt @db.Date
+  orders    Order[]  @relation("UserOrders")
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  orderCode String   @unique
+  userId    Int
+  bookId    Int
+  status    String
+  createdAt DateTime @default(now()) @db.Date
+  updatedAt DateTime @default(now()) @updatedAt @db.Date
+  book      Book     @relation("BookOrders", fields: [bookId], references: [id])
+  user      User     @relation("UserOrders", fields: [userId], references: [id])
+}

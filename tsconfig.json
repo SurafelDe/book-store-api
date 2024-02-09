@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "baseUrl": "./src"                           /* Skip type checking all .d.ts files. */
+  },
+  "include": ["src/**/*.ts", "src/services/bookService.tsx"],
+  "exclude": ["node_modules"]
+}
