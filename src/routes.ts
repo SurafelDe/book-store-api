@@ -10,17 +10,17 @@ const bookController = new BookController();
 const userController = new UserController();
 const orderController = new OrderController();
 
-router.get('/book/get', verifyToken, bookController.getAllBooks.bind(bookController));
-router.post('/book/create', bookController.createBook.bind(bookController));
-router.post('/book/rate', verifyToken, bookController.rateBook.bind(bookController));
-router.post('/book/update', bookController.updateBook.bind(bookController));
+router.get('/api/book/get', verifyToken, bookController.getAllBooks.bind(bookController));
+router.post('/api/book/create', bookController.createBook.bind(bookController));
+router.post('/api/book/rate', verifyToken, bookController.rateBook.bind(bookController));
+router.post('/api/book/update', bookController.updateBook.bind(bookController));
 
-router.post('/user/login', userController.login.bind(userController));
-router.post('/user/register', userController.register.bind(userController));
-router.post('/user/addPoints', verifyToken, userController.addPoints.bind(userController));
-router.post('/user/get', verifyToken, userController.getUser.bind(userController));
+router.post('/api/user/login', userController.login.bind(userController));
+router.post('/api/user/register', userController.register.bind(userController));
+router.post('/api/user/addPoints', verifyToken, userController.addPoints.bind(userController));
+router.post('/api/user/get', verifyToken, userController.getUser.bind(userController));
 
-router.post('/order/create', verifyToken, orderController.createOrder.bind(orderController));
-router.post('/order/cancel', verifyToken, orderController.cancelOrder.bind(orderController));
+router.post('/api/order/create', verifyToken, orderController.createOrder.bind(orderController));
+router.post('/api/order/cancel', verifyToken, orderController.cancelOrder.bind(orderController));
 
 export default router;
