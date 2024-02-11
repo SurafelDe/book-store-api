@@ -17,7 +17,11 @@ export class UserRepository {
       }
 
       public async findUser(email: string) {
-        return prisma.user.findUnique({ include: { orders: true }, where: { email } });
+        return prisma.user.findUnique({ include: { orders: {
+          include: {
+            book: true // Include the related book for each order
+          }
+        } }, where: { email } });
       }
     
       public async createUser(userData: any) {

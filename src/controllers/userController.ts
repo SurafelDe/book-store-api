@@ -52,7 +52,7 @@ export class UserController {
           const user = await this.userService.getUser(email);
           const userWithoutPassword = { ...user };
           delete userWithoutPassword.password; // Remove the password field
-          res.json({ message: 'User added successfully', user: userWithoutPassword });
+          res.json({ message: 'User loaded successfully', user: userWithoutPassword });
         } catch (error) {
           console.error('Error adding points:', error);
           res.status(500).json({ error: 'Internal server error' });
