@@ -28,7 +28,7 @@ const orderController = new OrderController();
  *         - updatedAt     
  *       properties:
  *         id:
- *           type: string
+ *           type: integer
  *           description: The auto-generated id of the book
  *         title:
  *           type: string
@@ -43,7 +43,7 @@ const orderController = new OrderController();
  *           type: array
  *           description: The list of genre of the book
  *       example:
- *         id: d5fE_asz
+ *         id: 3
  *         title: The New Turing Omnibus
  *         writer: Alexander K. Dewdney
  *         cover_image: image_url
