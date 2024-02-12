@@ -30,7 +30,7 @@ export class UserService {
     public async register(userData: any) {
         const existingUser = await this.userRepository.findUserByEmail(userData.email);
         if (existingUser) {
-          throw new Error('Email already exists');
+          throw new Error('existingUser');
         }
         return this.userRepository.createUser(userData);
       }
@@ -41,6 +41,10 @@ export class UserService {
 
       public async getUser(email: any) {
         return await this.userRepository.findUser(email);
+      }
+
+      public async getUserById(email: any) {
+        return await this.userRepository.findUserById(email);
       }
 
     // Implement more service methods here

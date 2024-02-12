@@ -30,8 +30,13 @@ export class UserController {
           await this.userService.register(userData);
           res.status(201).json({ message: 'User registered successfully' });
         } catch (error) {
+          if(error === Error('existingUser')) {
+            res.status(500).json({ error: 'User already exists' });
+          }
+          else {
+            res.status(500).json({ error: 'Internal server error' });
+          }
           console.error('Error during registration:', error);
-          res.status(500).json({ error: 'Internal server error' });
         }
       }
     

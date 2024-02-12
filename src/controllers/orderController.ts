@@ -24,10 +24,10 @@ export class OrderController {
         try {
           const { userId, bookId } = req.body;
           await this.orderService.createOrder(userId, bookId);
-          res.status(201).json({ message: 'Book ordered successfully' });
+          res.status(200).json({ message: 'Book ordered successfully' });
         } catch (error) {
           console.error('Error ordering book:', error);
-          res.status(500).json({ error: 'Internal server error' });
+          res.status(500).json({ error: (error as Error).message});
         }
       }
     
