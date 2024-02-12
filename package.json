@@ -30,6 +30,7 @@
     "@types/cors": "^2.8.17",
     "@types/node": "^20.11.16",
     "@types/pg": "^8.11.0",
+    "@types/swagger-jsdoc": "^6.0.4",
     "@types/yamljs": "^0.2.34",
     "prisma": "^5.9.1",
     "ts-node": "^10.9.2",
